@@ -1,0 +1,38 @@
+body {
+    background-color: #8075FF;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container button {
+    background-color: #6320EE;
+    border-style: solid;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 20%;
+    margin: 10px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.button-container button:hover {
+    background-color: #4b1baa;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.custom-icon-color {
+    color: antiquewhite;
+}
+
+.game-result {
+    background-color: black;
+}
+
+#result {
+    color: antiquewhite;
+}
