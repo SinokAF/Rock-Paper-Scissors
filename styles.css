@@ -2,10 +2,13 @@ body {
     background-color: #8075FF;
 }
 
+/*
+ Stylisation des boutons et de son conteneur
+*/
 .button-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 2rem;
 }
 
 .button-container button {
@@ -29,10 +32,14 @@ body {
     color: antiquewhite;
 }
 
-.game-result {
-    background-color: black;
+/*
+ Stylisation de l'affichage du resultat
+*/
+.result-display h2 {
+    margin-bottom: 3rem;
+    color: antiquewhite;
 }
 
-#result {
-    color: antiquewhite;
+.result-display #player-result {
+    margin-top: 3rem;
 }
