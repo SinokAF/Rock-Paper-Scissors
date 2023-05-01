@@ -36,10 +36,35 @@ body {
  Stylisation de l'affichage du resultat
 */
 .result-display h2 {
-    margin-bottom: 3rem;
+    margin-top: 3rem;
     color: antiquewhite;
 }
 
-.result-display #player-result {
+.result-display {
     margin-top: 3rem;
+}
+
+
+#player-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#computer-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#game-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: bold;
 }
