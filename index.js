@@ -24,15 +24,15 @@ const getButtonIcon = (choice) => {
 
     switch (choice) {
         case 'rock':
-            iElement.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-4x', 'custom-icon-color', 'icon-choice-display')
+            iElement.classList.add('fa-regular', 'fa-hand-back-fist', 'fa-3x', 'custom-icon-color', 'icon-choice-display')
             return iElement
 
         case 'paper':
-            iElement.classList.add('fa-regular', 'fa-hand', 'fa-4x', 'custom-icon-color', 'icon-choice-display')
+            iElement.classList.add('fa-regular', 'fa-hand', 'fa-3x', 'custom-icon-color', 'icon-choice-display')
             return iElement
 
         case 'scissors':
-            iElement.classList.add('fa-regular', 'fa-hand-scissors', 'fa-4x', 'custom-icon-color', 'icon-choice-display')
+            iElement.classList.add('fa-regular', 'fa-hand-scissors', 'fa-3x', 'custom-icon-color', 'icon-choice-display')
             return iElement
         default:
             break;
