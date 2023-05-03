@@ -49,7 +49,21 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-#player-result {
+#player-icons-selected {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#computer-icons-selected {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-score {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +71,7 @@ body {
     font-weight: bold;
 }
 
-#computer-result {
+#computer-score {
     display: flex;
     justify-content: center;
     align-items: center;

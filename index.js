@@ -1,16 +1,28 @@
 const rockButton = document.getElementById('rock')
 const paperButton = document.getElementById('paper')
 const scissorsButton = document.getElementById('scissors')
-
-const playerChoiceDisplay = document.getElementById('player-result')
-const computerChoiceDisplay = document.getElementById('computer-result');
+const playerScoreDisplay = document.getElementById('player-score')
+const computerScoreDisplay = document.getElementById('computer-score')
+const playerChoiceContainer = document.getElementById('player-icons-selected')
+const computerChoiceContainer = document.getElementById('computer-icons-selected')
 const resultDisplay = document.getElementById('game-result');
-
 const buttons = [rockButton, paperButton, scissorsButton]
+
+var playerScore = 0
+var computerScore = 0
 
 const handleClick = (event) => {
     const computerChoice = buttons[Math.floor(Math.random() * buttons.length)].id
     const playerChoice = event.target.id
+
+    // Supprimer les anciens choix
+    //removeSelectedIconChoice(playerChoiceContainer)
+    //removeSelectedIconChoice(computerChoiceContainer)
+
+    // Ajouter les icones dans les choix des joueurs
+    playerChoiceContainer.appendChild(getButtonIcon(playerChoice))
+    computerChoiceContainer.appendChild(getButtonIcon(computerChoice))
+
     getResult(playerChoice, computerChoice)
 }
 
@@ -18,8 +30,13 @@ buttons.forEach(button => {
     button.addEventListener('click', handleClick)
 })
 
-const getButtonIcon = (choice) => {
+const removeSelectedIconChoice = (choiceContainer) => {
+    if (choiceContainer.firstChild != null) {
+        choiceContainer.removeChild(choiceContainer.firstChild)
+    }
+}
 
+const getButtonIcon = (choice) => {
     const iElement = document.createElement('i')
 
     switch (choice) {
@@ -39,45 +56,27 @@ const getButtonIcon = (choice) => {
     }
 }
 
-/*const removeChildElement = (choiceDisplay) => {
-
-    if (choiceDisplay.children.length > 1) {
-        choiceDisplay.removeChild(choiceDisplay.children[0])
-    }
-}*/
-
-
 const getResult = (playerChoice, computerChoice) => {
 
     switch (playerChoice + computerChoice) {
         case 'scissorspaper':
         case 'rockscissors':
         case 'paperrock':
-
-            // Affichage des choix des joueurs
-            playerChoiceDisplay.insertAdjacentElement('afterend', getButtonIcon(playerChoice))
-            computerChoiceDisplay.insertAdjacentElement('afterend', getButtonIcon(computerChoice))
+            playerScore += 1
+            playerScoreDisplay.textContent = "Player score : " + playerScore
             resultDisplay.textContent = "YOU WIN !"
             break
-
         case 'paperscissors':
         case 'scissorsrock':
         case 'rockpaper':
-
-            // Affichage des choix des joueurs
-            playerChoiceDisplay.insertAdjacentElement('afterend', getButtonIcon(playerChoice))
-            computerChoiceDisplay.insertAdjacentElement('afterend', getButtonIcon(computerChoice))
-            resultDisplay.innerHTML = "YOU LOST !"
+            computerScore += 1
+            computerScoreDisplay.textContent = "Computer score : " + computerScore
+            resultDisplay.textContent = "YOU LOST !"
             break
-
         case 'paperpaper':
         case 'scissorsscissors':
         case 'rockrock':
-
-            // Affichage des choix des joueurs
-            playerChoiceDisplay.insertAdjacentElement('afterend', getButtonIcon(playerChoice))
-            computerChoiceDisplay.insertAdjacentElement('afterend', getButtonIcon(computerChoice))
-            resultDisplay.innerHTML = "DRAW !"
+            resultDisplay.textContent = "DRAW !"
             break
     }
 }
