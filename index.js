@@ -8,6 +8,10 @@ const computerChoiceContainer = document.getElementById('computer-icons-selected
 const resultDisplay = document.getElementById('game-result');
 const buttons = [rockButton, paperButton, scissorsButton]
 
+const checkbox = document.getElementById('checkbox-id')
+const resetButton = document.querySelector('.reset-button')
+
+var showSelectedIcons = false
 var playerScore = 0
 var computerScore = 0
 
@@ -16,8 +20,11 @@ const handleClick = (event) => {
     const playerChoice = event.target.id
 
     // Supprimer les anciens choix
-    //removeSelectedIconChoice(playerChoiceContainer)
-    //removeSelectedIconChoice(computerChoiceContainer)
+    if (!showSelectedIcons) {
+        removeSelectedIconChoice(playerChoiceContainer)
+        removeSelectedIconChoice(computerChoiceContainer)
+    }
+
 
     // Ajouter les icones dans les choix des joueurs
     playerChoiceContainer.appendChild(getButtonIcon(playerChoice))
@@ -30,8 +37,26 @@ buttons.forEach(button => {
     button.addEventListener('click', handleClick)
 })
 
+checkbox.addEventListener('click', e => {
+    if (checkbox.checked) {
+        showSelectedIcons = true
+    } else {
+        showSelectedIcons = false
+    }
+})
+
+resetButton.addEventListener('click', e => {
+    playerScore = 0
+    computerScore = 0
+    removeSelectedIconChoice(playerChoiceContainer)
+    removeSelectedIconChoice(computerChoiceContainer)
+    playerScoreDisplay.textContent = "Player score : " + playerScore
+    computerScoreDisplay.textContent = "Computer score : " + computerScore
+    resultDisplay.textContent = ""
+})
+
 const removeSelectedIconChoice = (choiceContainer) => {
-    if (choiceContainer.firstChild != null) {
+    while (choiceContainer.firstChild != null) {
         choiceContainer.removeChild(choiceContainer.firstChild)
     }
 }
@@ -79,4 +104,8 @@ const getResult = (playerChoice, computerChoice) => {
             resultDisplay.textContent = "DRAW !"
             break
     }
+}
+
+const resetScores = () => {
+
 }
